@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Example</title>
+</head>
+<body>
+    <h1>API Example</h1>
+    
+    <button onclick="getData()">Fetch Data</button>
+
+    <div id="output"></div>
+
+    <script>
+        function getData() {
+            // Replace 'https://jsonplaceholder.typicode.com/todos/1' with the actual API endpoint you want to use
+            const apiUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+
+            // Make a GET request to the API endpoint
+            fetch(apiUrl)
+                .then(response => {
+                    // Check if the request was successful (status code 200 OK)
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    // Parse the JSON in the response
+                    return response.json();
+                })
+                .then(data => {
+                    // Display the data on the page
+                    document.getElementById('output').innerHTML = `
+                        <p>User ID: ${data.userId}</p>
+                        <p>Title: ${data.title}</p>
+                        <p>Completed: ${data.completed}</p>
+                    `;
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Fetch error:', error);
+                });
+        }
+    </script>
+</body>
+</html>

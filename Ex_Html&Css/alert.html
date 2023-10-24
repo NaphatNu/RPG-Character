@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Welcome Alert</title>
+    <style>
+        /* Custom CSS for the alert */
+        .custom-alert {
+            display: none;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        /* Styling for the close button */
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Button to trigger the welcome alert -->
+<button onclick="welcome()">Show Welcome Alert</button>
+
+<!-- The custom welcome alert div -->
+<div id="welcomeAlert" class="custom-alert">
+    <span class="close-btn" onclick="closeWelcomeAlert()">&times;</span>
+    <p>ยินดีต้อนรับเข้าสู่หน้าเว็บของเรา!</p>
+</div>
+
+<script>
+    // JavaScript functions to show and hide the welcome alert
+    function welcome() {
+        var welcomeAlert = document.getElementById("welcomeAlert");
+        welcomeAlert.style.display = "block";
+    }
+
+    function closeWelcomeAlert() {
+        var welcomeAlert = document.getElementById("welcomeAlert");
+        welcomeAlert.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
